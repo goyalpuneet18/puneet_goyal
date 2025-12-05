@@ -49,7 +49,6 @@ export const AboutSection: React.FC = () => {
             >
                 <h2 className="section-title">About Me</h2>
 
-                {/* Stats Row - Only 2 cards now */}
                 <div className="stats-grid">
                     <motion.div
                         className="stat-card"
@@ -90,7 +89,6 @@ export const AboutSection: React.FC = () => {
                     <div className="skills-section">
                         <h3>My Skillset</h3>
 
-                        {/* Programming Languages */}
                         <motion.div
                             className="skill-category"
                             initial={{ opacity: 0, x: -20 }}
@@ -119,7 +117,6 @@ export const AboutSection: React.FC = () => {
                             </div>
                         </motion.div>
 
-                        {/* Frameworks */}
                         <motion.div
                             className="skill-category"
                             initial={{ opacity: 0, x: -20 }}
@@ -148,7 +145,6 @@ export const AboutSection: React.FC = () => {
                             </div>
                         </motion.div>
 
-                        {/* Tools */}
                         <motion.div
                             className="skill-category"
                             initial={{ opacity: 0, x: -20 }}
@@ -177,7 +173,6 @@ export const AboutSection: React.FC = () => {
                             </div>
                         </motion.div>
 
-                        {/* AI/ML Models */}
                         <motion.div
                             className="skill-category"
                             initial={{ opacity: 0, x: -20 }}
@@ -206,7 +201,6 @@ export const AboutSection: React.FC = () => {
                             </div>
                         </motion.div>
 
-                        {/* Certifications */}
                         <h3 style={{ marginTop: '4rem' }}>Certifications</h3>
                         <div className="certifications-grid">
                             {[

@@ -9,11 +9,7 @@ export class ScrollService {
     }
 
     public updateScroll(scrollY: number) {
-        // Logic to update section progress based on scrollY
-        // This is a simplified placeholder
         this.sections.forEach(section => {
-            // Calculate progress based on element position relative to viewport
-            // For now, just a dummy update
             section.progress = Math.min(1, Math.max(0, scrollY / 1000));
         });
         this.notifyListeners();

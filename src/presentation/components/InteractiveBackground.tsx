@@ -10,18 +10,16 @@ export const InteractiveBackground: React.FC = () => {
         if (canvasRef.current) {
             backgroundService.init(canvasRef.current);
 
-            // Add some initial particles
-            const particleCount = 250; // Reduced from 400 for cleaner look
+            const particleCount = 250;
             for (let i = 0; i < particleCount; i++) {
-                const size = Math.random() * 3 + 1; // Smaller: 1-4px
-                // Very subtle grey/white
-                const alpha = Math.random() * 0.2 + 0.05; // 0.05 - 0.25 opacity
+                const size = Math.random() * 3 + 1;
+                const alpha = Math.random() * 0.2 + 0.05;
                 const color = `rgba(255, 255, 255, ${alpha})`;
 
                 backgroundService.addParticle(new ParticleImpl(
                     Math.random() * window.innerWidth,
                     Math.random() * window.innerHeight,
-                    0, 0, // Initial velocity 0 as we use spring physics now
+                    0, 0,
                     size,
                     color
                 ));

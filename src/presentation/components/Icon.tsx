@@ -65,28 +65,21 @@ export const Icon: React.FC<IconProps> = ({ name, size = 48 }) => {
         ),
         wave: (
             <svg width={size} height={size} viewBox="0 0 64 64" fill="none">
-                {/* Palm - main hand base */}
                 <path
                     d="M20 42 L20 28 C20 26 21 24 23 24 L41 24 C43 24 44 26 44 28 L44 42 C44 44 43 46 41 46 L23 46 C21 46 20 44 20 42 Z"
                     fill="currentColor"
                 />
 
-                {/* Pinky finger */}
                 <rect x="20" y="14" width="6" height="12" rx="3" fill="currentColor" />
 
-                {/* Ring finger */}
                 <rect x="27" y="10" width="6" height="16" rx="3" fill="currentColor" />
 
-                {/* Middle finger - tallest */}
                 <rect x="34" y="8" width="6" height="18" rx="3" fill="currentColor" />
 
-                {/* Index finger */}
                 <rect x="41" y="12" width="6" height="14" rx="3" fill="currentColor" />
 
-                {/* Thumb - side positioned */}
                 <ellipse cx="17" cy="34" rx="4" ry="7" fill="currentColor" />
 
-                {/* Wrist */}
                 <rect x="24" y="46" width="16" height="8" rx="2" fill="currentColor" opacity="0.9" />
             </svg>
         ),
