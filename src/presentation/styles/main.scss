@@ -728,3 +728,50 @@ h1, h2, h3 {
     z-index: 1;
   }
 }
+// Mobile Responsive Navigation Dock
+@media (max-width: 768px) {
+  .navigation-dock-container {
+    right: auto;
+    top: auto;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    width: auto;
+    max-width: 90%;
+  }
+
+  .navigation-dock {
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    gap: 0.25rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(20, 20, 20, 0.8); // Darker background for better contrast on mobile
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dock-item {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+
+    // Hide tooltips on mobile
+    .dock-label {
+      display: none;
+    }
+
+    // Active indicator for round buttons
+    .active-indicator {
+      border-radius: 50%;
+    }
+  }
+
+  // Adjust content padding to prevent overlap with bottom dock
+  .content-section {
+    padding-bottom: 8rem;
+  }
+}
