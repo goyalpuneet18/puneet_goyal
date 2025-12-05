@@ -849,6 +849,7 @@ h1, h2, h3 {
 @media (max-width: 768px) {
   .hero-title {
     font-size: clamp(2.5rem, 8vw, 4rem);
+    word-break: break-word; // Prevent overflow
   }
   
   .hero-subtitle {
@@ -857,8 +858,9 @@ h1, h2, h3 {
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem; // Reduced from 2rem to prevent separate word overflow
     margin-bottom: 2rem;
+    word-wrap: break-word;
   }
 
   .navigation-dock-container {
@@ -895,7 +897,8 @@ h1, h2, h3 {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    // Use minmax(0, 1fr) to force grid items to shrink below minimum content size
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
     padding: 0 1rem;
   }
@@ -904,11 +907,18 @@ h1, h2, h3 {
     gap: 1.5rem;
     padding: 0 1rem;
     justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  
+  // Ensure stats grid also respects containment
+  .stats-grid {
+      grid-template-columns: repeat(2, 1fr); // Force 2 columns for stats on mobile
   }
 
   .project-card, .stat-card, .certification-card {
     padding: 1.5rem;
-    width: auto;
+    width: 100%; // Explicit width
+    max-width: 100%; // Ensure no overflow
   }
 
   .project-card .project-icon-wrapper {
