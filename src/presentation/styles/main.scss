@@ -186,13 +186,153 @@ h1, h2, h3 {
 }
 
 // Projects Grid
+// Projects Grid
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  // Dynamic grid: at least 320px, but allows shrinking to 100% if screen is smaller
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+}
+
+// ... (skipping some unchanged styles)
+
+.stats-grid {
+  display: grid;
+  // Dynamic grid: at least 200px, but allows shrinking to 100% if screen is smaller
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ... (skipping some unchanged styles)
+
+.skills-grid {
+  display: list-item; // Fallback
+  display: grid;
+  // Dynamic grid for skills
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  gap: 1rem;
+  padding-left: 0; // Removed default padding
+  justify-items: center; // Center items if they don't fill row
+}
+
+// ... (skipping some unchanged styles)
+
+// Mobile Responsive Adjustments
+@media (max-width: 768px) {
+  // Typography & Hero
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  // Navigation Dock
+  .navigation-dock-container {
+    right: auto;
+    top: auto;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    width: auto;
+    max-width: 90%;
+  }
+
+  .navigation-dock {
+    flex-direction: row;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    gap: 0.25rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .dock-item {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    
+    // Hide tooltips on mobile
+    .dock-label {
+      display: none;
+    }
+  }
+
+  // Remove hard-coded grid overrides - the dynamic grids above handle it now!
+
+  .project-card, .stat-card, .certification-card {
+    padding: 1.5rem; // Keep reduced padding
+    width: 100%; // Ensure it takes full width of grid cell
+    box-sizing: border-box; // Crucial for padding
+  }
+
+  .project-card .project-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    
+    .project-svg-icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  // Adjust content padding to prevent overlap with bottom dock
+  .content-section {
+    padding-bottom: 10rem;
+    min-height: auto;
+  }
+
+  .projects-grid, .certifications-grid {
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .skills-grid {
+    padding: 0 1rem;
+  }
+
+  .certifications-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .contact-glass-container {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+    width: auto;
+  }
+  
+  .contact-links {
+    gap: 1rem;
+  }
+  
+  .contact-link {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
 }
 
 .project-card {
@@ -729,11 +869,28 @@ h1, h2, h3 {
   }
 }
 // Mobile Responsive Navigation Dock
+// Mobile Responsive Adjustments
 @media (max-width: 768px) {
+  // Typography & Hero
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  // Navigation Dock
   .navigation-dock-container {
     right: auto;
     top: auto;
-    bottom: 2rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     flex-direction: row;
@@ -743,35 +900,85 @@ h1, h2, h3 {
 
   .navigation-dock {
     flex-direction: row;
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
     gap: 0.25rem;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    background: rgba(20, 20, 20, 0.8); // Darker background for better contrast on mobile
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .dock-item {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     padding: 0;
-    border-radius: 50%;
-
+    
     // Hide tooltips on mobile
     .dock-label {
       display: none;
     }
+  }
 
-    // Active indicator for round buttons
-    .active-indicator {
-      border-radius: 50%;
+  // Cards layout
+  .projects-grid {
+    grid-template-columns: 1fr; // Force single column and fit width
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .skills-grid, .stats-grid {
+    gap: 1.5rem;
+    padding: 0 1rem;
+    justify-content: center;
+  }
+
+  .project-card, .stat-card, .certification-card {
+    padding: 1.5rem;
+    width: auto; // Ensure card doesn't force width
+  }
+
+  .project-card .project-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    
+    .project-svg-icon {
+      width: 24px;
+      height: 24px;
     }
   }
 
   // Adjust content padding to prevent overlap with bottom dock
   .content-section {
-    padding-bottom: 8rem;
+    padding-bottom: 10rem;
+    min-height: auto;
+  }
+
+  .projects-grid, .certifications-grid {
+    padding-bottom: 1rem;
+  }
+
+  .certifications-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .contact-glass-container {
+    padding: 2rem 1.5rem;
+    margin: 0 1rem; // Add margin to prevent edge touching
+    width: auto; // Allow margin to take effect
+  }
+  
+  .contact-links {
+    gap: 1rem;
+  }
+  
+  .contact-link {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%; // Full width buttons on mobile
+    justify-content: center;
   }
 }
