@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Puneet Goyal - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive personal portfolio website showcasing my skills, projects, and professional background. Built with performance and user experience in mind, featuring smooth animations and an interactive design.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+-   **Frontend Framework:** [React](https://reactjs.org/) (v19)
+-   **Build Tool:** [Vite](https://vitejs.dev/)
+-   **Language:** [TypeScript](https://www.typescriptlang.org/)
+-   **Styling:** [SCSS](https://sass-lang.com/) for modular and advanced styling.
+-   **Animations:** [Framer Motion](https://www.framer.com/motion/) for complex, declarative animations.
+-   **Smooth Scroll:** [Lenis](https://github.com/studio-freight/lenis) for luxurious scrolling experiences.
+-   **Deployment:** GitHub Pages
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+-   **Responsive Design:** Fully fluid layout adapting to mobile, tablet, and desktop screens.
+-   **Interactive Background:** Custom particle system responding to mouse movement.
+-   **Navigation Dock:** Mac-style floating navigation dock for easy access to sections.
+-   **Animated Sections:** Scroll-triggered entry animations for all content.
+-   **Glassmorphism UI:** Modern frosted glass aesthetic (glassmorphism) throughout the design.
+-   **Dynamic Grids:** Fluid grid layouts for projects and skills that auto-adjust without hard breakpoints.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Installation & Setup
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/goyalpuneet18/puneet_goyal.git
+    cd puneet_goyal
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3.  **Run development server:**
+    ```bash
+    npm run dev
+    ```
+    The site will be available at `http://localhost:5173`.
+
+## 📦 Building & Deployment
+
+This project is configured to deploy directly to GitHub Pages.
+
+1.  **Build for production:**
+    ```bash
+    npm run build
+    ```
+
+2.  **Deploy to GitHub Pages:**
+    ```bash
+    npm run deploy
+    ```
+    This script builds the project and pushes the `dist` folder to the `gh-pages` branch.
+
+## 📁 Project Structure
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+src/
+├── core/               # Core business logic and interfaces
+│   ├── application/    # Application services (e.g., BackgroundService, ScrollService)
+│   └── domain/         # Domain models and interfaces
+├── infrastructure/     # Implementation details (e.g., specific particle logic)
+└── presentation/       # UI Components and Styles
+    ├── components/     # React components (Hero, About, Projects, etc.)
+    └── styles/         # Global SCSS styles
 ```
